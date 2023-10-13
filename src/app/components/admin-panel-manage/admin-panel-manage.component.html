@@ -1,0 +1,10 @@
+<h3 class="mt-3 ms-3">Amministrazione Utente</h3>
+<p *ngIf="houses.length == 0" class="alert alert-warning mt-3"> Questo utente non ha annunci attivi.</p>
+<ul class="list-group mt-3">
+    <li class="list-group-item" *ngFor="let house of houses">{{house.nome}} : {{ house.prezzoAttuale}}
+        <div class="d-inline right">
+        <button type="submit" class="btn btn-danger float-right" (click)="deleteHouse(house.id)"> Elimina</button> <button
+            type="submit" class="btn btn-light float-right ms-3" routerLink="/houses/{{house.id}}">Mostra Annuncio</button>
+        </div>
+    </li>
+</ul>

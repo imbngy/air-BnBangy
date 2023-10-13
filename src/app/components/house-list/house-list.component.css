@@ -1,0 +1,13 @@
+a{
+    text-decoration: dotted;
+    
+}
+
+.card-title{
+    color: #000000;
+}
+
+::selection{
+    color: #f8f8f8;
+    background-color: #252525;
+}

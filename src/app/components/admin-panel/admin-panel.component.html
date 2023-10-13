@@ -1,0 +1,10 @@
+<h3 class="mt-3">Amministrazione</h3>
+<ul class="list-group mt-3">
+    <li class="list-group-item" *ngFor="let utente of users">{{utente.nome}} {{utente.cognome}} : {{ utente.email}}
+        <div class="d-inline right">
+            <button type="submit" class="btn btn-primary float-right" (click)="promoteUser(utente.id)">Promuovi</button>
+            <button type="submit" class="btn btn-danger float-right ms-3" (click)="banUser(utente.id)"> Banna</button> 
+            <button type="submit" class="btn btn-light float-right ms-3" routerLink="/adminPanel/{{utente.id}}">Mostra Annunci</button>
+        </div>
+    </li>
+</ul>

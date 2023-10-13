@@ -1,0 +1,32 @@
+::selection{
+    color: #f8f8f8;
+    background-color: #252525;
+}
+
+.right{
+    float: right;
+    margin-right: 10px;
+    justify-content: space-between;
+    display: flex;
+}
+
+.user{
+    background-color: #f8f8f8 !important;
+    border-radius:23px !important;
+    margin-right: 1em !important;
+    margin-left: 10px !important;
+}
+
+@media screen and (max-width: 992px) {
+
+    .user{
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+        justify-content: center !important;
+    }
+
+    .user-icon{
+        margin-left: 48% !important;
+    }
+    
+}

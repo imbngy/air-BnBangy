@@ -1,0 +1,96 @@
+<!--TODO: API imgbb, crea form per creare annuncio-->
+<form [formGroup]="immobileFormGroup" (ngSubmit)="createImmobile()">
+    <div class="form-group" formGroupName="immobile">
+        <label for="nome">Nome immobile: </label>
+        <input type="text" class="form-control" id="nome" placeholder="Nome Immobile" formControlName="nome">
+        <div *ngIf="nome.invalid && (nome.dirty ||nome.touched)" class="alert alert-danger mt-1">
+            <div *ngIf="nome.errors['required'] || nome.errors['notOnlyWhitespace']">
+                Il nome è obbligatorio.
+            </div>
+
+            <div *ngIf="nome.errors['minlength']">
+                Il nome deve avere almeno 4 caratteri.
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group" formGroupName="immobile">
+        <label for="descrizione">Descrizione: </label>
+        <input type="text" class="form-control" id="descrizione" placeholder="Descrizione"
+            formControlName="descrizione">
+            <div *ngIf="descrizione.invalid && (descrizione.dirty ||descrizione.touched)" class="alert alert-danger mt-1">
+                <div *ngIf="descrizione.errors['required'] || descrizione.errors['notOnlyWhitespace']">
+                    La descrizione è obbligatoria.
+                </div>
+
+                <div *ngIf="descrizione.errors['minlength']">
+                    La descrizione deve avere almeno 4 caratteri.
+                </div>
+                <div *ngIf="descrizione.errors['maxlength']">
+                    La descrizione deve avere al massimo 255 caratteri.
+                </div>
+
+            </div>
+    </div>
+    <div class="form-group" formGroupName="immobile">
+        <label for="indirizzo">Indirizzo: (Via, Numero ; Città ; Provincia ; CAP)</label>
+        <input type="text" class="form-control" id="indirizzo" placeholder="Via, Numero ; Città ; Provincia ; CAP"
+            formControlName="indirizzo">
+            <div *ngIf="indirizzo.invalid && (indirizzo.dirty ||indirizzo.touched)" class="alert alert-danger mt-1">
+                <div *ngIf="indirizzo.errors['required'] || indirizzo.errors['notOnlyWhitespace']">
+                    L'indirizzo è obbligatorio.
+                </div>
+
+                <div *ngIf="indirizzo.errors['minlength']">
+                    L'indirizzo deve avere almeno 4 caratteri.
+                </div>
+
+            </div>
+    </div>
+    <div class="form-group" formGroupName="immobile">
+        <label for="prezzo">Prezzo: </label>
+        <input type="number" class="form-control" id="prezzo" placeholder="Prezzo"
+            formControlName="prezzoIniziale">
+            <div *ngIf="prezzoIniziale.invalid && (prezzoIniziale.dirty ||prezzoIniziale.touched)" class="alert alert-danger mt-1">
+                <div *ngIf="prezzoIniziale.errors['required'] || prezzoIniziale.errors['notOnlyWhitespace']">
+                    Il prezzo è obbligatorio.
+                </div>
+
+                <div *ngIf="prezzoIniziale.errors['min']">
+                    Il prezzo deve essere almeno 1.
+                </div>
+
+            </div>
+    </div>
+    <div class="form-group" formGroupName="immobile">
+        <label for="categoria">Categoria: </label>
+        <input type="text" class="form-control" id="categoria" placeholder="(Casale, Appartamento, Villa, etc...)"
+            formControlName="categoria">
+            <div *ngIf="categoria.invalid && (nome.dirty ||categoria.touched)" class="alert alert-danger mt-1">
+                <div *ngIf="categoria.errors['required'] || categoria.errors['notOnlyWhitespace']">
+                    La categoria è obbligatoria.
+                </div>
+
+                <div *ngIf="categoria.errors['minlength']">
+                    La categoria deve avere almeno 2 caratteri.
+                </div>
+
+            </div>
+    </div>
+    <div class="form-group" formGroupName="immobile">
+        <label for="metriQuadri">Metri Quadri: </label>
+        <input type="number" class="form-control" id="metriQuadri" placeholder="Metri Quadri"
+            formControlName="metriQuadri">
+            <div *ngIf="metriQuadri.invalid && (metriQuadri.dirty ||metriQuadri.touched)" class="alert alert-danger mt-1">
+                <div *ngIf="metriQuadri.errors['required'] || metriQuadri.errors['notOnlyWhitespace']">
+                    I metri quadri sono obbligatori.
+                </div>
+
+                <div *ngIf="metriQuadri.errors['min']">
+                    I metri quadri devono essere almeno 1.
+                </div>
+
+            </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Crea Immobile</button>
+</form>

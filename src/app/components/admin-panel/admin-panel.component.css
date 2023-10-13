@@ -1,0 +1,6 @@
+.right{
+    float: right;
+    margin-right: 10px;
+    justify-content: space-between;
+    display: flex;
+}

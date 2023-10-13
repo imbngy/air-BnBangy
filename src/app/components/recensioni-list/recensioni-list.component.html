@@ -1,0 +1,28 @@
+<h4 class="mt-4 mb-2">Recensioni:</h4>
+
+<p *ngIf="recensioni.length == 0"> Nessuna recensione.</p>
+
+<div class="review-box-container">
+
+    <div *ngFor=" let recensione of recensioni" class="review-box">
+        <div class="box-top">
+
+            <div class="profile">
+                <div class="profile-info">
+                    <strong class="name">{{ recensione.autore }}</strong>
+                    <p *ngIf="recensione.data" class="date">{{ recensione.data | date: 'dd/MM/yyyy' }}</p>
+                </div>
+            </div>
+            <div class="review">
+                <p-rating [(ngModel)]="recensione.voto" [readonly]="true" [cancel]="false"></p-rating>
+            </div>
+        </div>
+
+        <div class="box-bottom">
+            <h5>{{ recensione.titolo }}</h5>
+            <p>{{ recensione.testo }}</p>
+            <button *ngIf="this.imAuth.isLoggedIn &&  checkReviewOwner(recensione)" type="button" class="btn btn-danger" (click)="del(recensione.id)">Elimina</button>
+        </div>
+    </div>
+
+</div>

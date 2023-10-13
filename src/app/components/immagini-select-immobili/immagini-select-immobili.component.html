@@ -1,0 +1,7 @@
+<h3 class="mt-3 ms-3">Aggiungi Immagini</h3>
+<ul class="list-group mt-3" >
+    <li class="list-group-item" *ngFor="let myhouse of myhouses" routerLink="/aggiungiImmagini/{{ myhouse.id }}">
+        {{myhouse.nome}} : {{myhouse.prezzoAttuale | currency:'EUR'}}
+        <button class="btn btn-primary float-end" routerLink="/aggiungiImmagini/{{ myhouse.id }}">Aggiungi Immagini</button>
+    </li>
+</ul>

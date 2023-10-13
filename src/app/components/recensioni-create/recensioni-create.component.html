@@ -1,0 +1,46 @@
+<!-- button "Crea Recensione" -->
+<button type="button" class="btn btn-primary" (click)="showCreate()">Crea Recensione</button>
+
+<form *ngIf="showRecensioneCreate" [formGroup]="recensioneFormGroup">
+    <div class="form-group" formGroupName="recensione">
+        <label for="autore">Autore:</label>
+        <input formControlName="autore" type="text" class="form-control" id="autore" placeholder="Il Tuo Nome">
+        <div *ngIf="autore.invalid && (autore.dirty ||autore.touched)" class="alert alert-danger mt-1">
+            <div *ngIf="autore.errors['required'] || autore.errors['notOnlyWhitespace']">
+                Il nome è obbligatorio...
+            </div>
+
+            <div *ngIf="autore.errors['minlength']">
+                Il nome deve avere almeno 2 caratteri...
+            </div>
+        </div>
+    </div>
+    <div class="form-group" formGroupName="recensione">
+        <label for="titolo">Titolo:</label>
+        <input formControlName="titolo" type="text" class="form-control" id="titolo" placeholder="Titolo">
+        <div *ngIf="titolo.invalid && (titolo.dirty ||titolo.touched)" class="alert alert-danger mt-1">
+            <div *ngIf="titolo.errors['required'] || titolo.errors['notOnlyWhitespace']">
+                Il titolo è obbligatorio...
+            </div>
+
+            <div *ngIf="autore.errors['minlength']">
+                Il titolo deve avere almeno 2 caratteri...
+            </div>
+        </div>
+    </div>
+    <div class="form-group" formGroupName="recensione">
+        <label for="voto">Voto:</label>
+        <select class="form-control" id="voto" formControlName="voto">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+    </div>
+    <div class="form-group" formGroupName="recensione">
+        <label for="testo">Testo:</label>
+        <textarea class="form-control" id="testo" rows="3" formControlName="testo"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="createRecensione()">Invia</button>
+</form>

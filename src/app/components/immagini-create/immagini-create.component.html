@@ -1,0 +1,8 @@
+<form [formGroup]="immaginiFormGroup">
+    <label>Carica le foto del tuo immobile!</label>
+    <div class="form-group" formGroupName="immagini" *ngFor='let in of counter(numeroImmagini) ;let i = index'>
+        <input type="file" class="form-control-file" id="foto" (input)="upload($event)" multiple>
+    </div>
+    <p *ngIf="doneUploading" class="alert alert-success"> Immagine caricata correttamente</p>
+</form>
+<button type="button" class="btn btn-primary" (click)="backToHome()">Torna alla home</button>
