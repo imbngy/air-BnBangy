@@ -1,9 +1,9 @@
-*.*.ts linguist-language=TS
+*.*.ts linguist-language=TS linguist-detectable
 
-*.*.html linguist-language=HTML
+*.*.html linguist-language=HTML linguist-detectable
 
-*.java linguist-language=JAVA
+*.java linguist-language=JAVA linguist-detectable
 
-back*end/* linguist-documentation
+back*end/** linguist-detectable
 
-front*end/* linguist-documentation
+front*end/** linguist-detectable
