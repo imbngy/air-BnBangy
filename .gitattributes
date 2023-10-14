@@ -4,6 +4,10 @@
 
 *.java linguist-language=JAVA linguist-detectable
 
+*.*.css linguist-documentation
+
+*.css linguist-documentation
+
 back*end/** linguist-detectable
 
 front*end/** linguist-detectable
