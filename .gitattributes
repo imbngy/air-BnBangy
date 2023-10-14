@@ -1,0 +1,9 @@
+*.*.ts linguist-language=TS
+
+*.*.html linguist-language=HTML
+
+*.java linguist-language=JAVA
+
+back*end/* linguist-documentation
+
+front*end/* linguist-documentation
