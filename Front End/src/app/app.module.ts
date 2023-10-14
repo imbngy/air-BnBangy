@@ -40,6 +40,7 @@ import { AdminPanelManageComponent } from './components/admin-panel-manage/admin
 
 const routes: Routes = [
 
+  { path: 'filter/:filter', component: HouseListComponent },
   { path: 'adminPanel', component: AdminPanelComponent },
   { path: 'adminPanel/:id', component: AdminPanelManageComponent },
   { path: 'createImmobile', component: ImmobileCreateComponent },

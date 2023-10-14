@@ -68,6 +68,31 @@ export class HouseService {
   updateHouse(house: House) {
     return this.httpClient.put<House>(`${this.baseUrl}/${house.id}`, house);
   }
+
+  getHouseListFilter(filter: string): Observable<House[]> {
+    if (filter == "priceAsc"){
+      return this.httpClient.get<GetResponse>(`${this.baseUrl}/search/findAllByOrderByPrezzoAttualeAsc`).pipe(
+        map(response => response._embedded.immobilis)
+      );
+    }
+    else if (filter == "priceDesc"){
+      return this.httpClient.get<GetResponse>(`${this.baseUrl}/search/findAllByOrderByPrezzoAttualeDesc`).pipe(
+        map(response => response._embedded.immobilis)
+      );
+    }
+    else if (filter == "metrAsc"){
+      return this.httpClient.get<GetResponse>(`${this.baseUrl}/search/findAllByOrderByMetriQuadriAsc`).pipe(
+        map(response => response._embedded.immobilis)
+      );
+    }
+    else if (filter == "metrDesc"){
+      return this.httpClient.get<GetResponse>(`${this.baseUrl}/search/findAllByOrderByMetriQuadriDesc`).pipe(
+        map(response => response._embedded.immobilis)
+      );
+    }
+    return this.getHouseList();
+  }
+
 }
 
 interface GetResponse {

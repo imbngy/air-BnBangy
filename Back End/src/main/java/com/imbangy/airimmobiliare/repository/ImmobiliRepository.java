@@ -17,6 +17,18 @@ public interface ImmobiliRepository extends JpaRepository<Immobili, Long> {
 
     Page<Immobili> findAll(Pageable pageable);
 
+    Page<Immobili> findAllByOrderByPrezzoInizialeAsc(Pageable pageable);
+
+    Page<Immobili> findAllByOrderByPrezzoInizialeDesc(Pageable pageable);
+
+    Page<Immobili> findAllByOrderByPrezzoAttualeAsc(Pageable pageable);
+
+    Page<Immobili> findAllByOrderByPrezzoAttualeDesc(Pageable pageable);
+
+    Page<Immobili> findAllByOrderByMetriQuadriAsc(Pageable pageable);
+
+    Page<Immobili> findAllByOrderByMetriQuadriDesc(Pageable pageable);
+
     Page<Immobili> findByNomeContainingIgnoreCase(@Param("nome")String nome, Pageable pageable);
 
     Page<Immobili> findByIdProprietario(@Param("id_proprietario")Long id_proprietario, Pageable pageable);

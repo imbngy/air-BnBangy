@@ -37,6 +37,9 @@ export class HouseListComponent {
   asta!: Aste;
   aste!: Aste[];
 
+  filter!: string;
+  previousFilter!: string;
+
 
   constructor(private houseService: HouseService,
     private route: ActivatedRoute,
@@ -57,6 +60,9 @@ export class HouseListComponent {
       //do search work
       this.handleSearchHouses();
     }
+    else if (this.route.snapshot.paramMap.has('filter')) {
+      this.handleFilterHouses();
+    }
     else {
       //display houses
       this.handleListHouses();
@@ -69,7 +75,7 @@ export class HouseListComponent {
     //check if category parameter is available
     const hasCategoria: boolean = this.route.snapshot.paramMap.has('categoria');
     if (hasCategoria) {
-      
+
       this.categoria = this.route.snapshot.paramMap.get('categoria')!;
     }
     else {
@@ -93,11 +99,19 @@ export class HouseListComponent {
             )
           }
           );
+          this.houses.forEach(house => {
+            this.asteService.getAstebyIdAnnuncio(house.id).subscribe(
+              data => {
+                this.aste = data;
+                if (this.aste.length > 0) {
+                  this.asta = this.aste[this.aste.length - 1];
+                }
+              }
+            )
+          });
 
         }
       );
-      
-
     }
     else if (this.categoria == '') {
       this.houseService.getHouseList().subscribe(
@@ -126,6 +140,7 @@ export class HouseListComponent {
         }
       );
     }
+
   }
 
   handleSearchHouses() {
@@ -145,8 +160,57 @@ export class HouseListComponent {
           )
         }
         );
+        this.houses.forEach(house => {
+          this.asteService.getAstebyIdAnnuncio(house.id).subscribe(
+            data => {
+              this.aste = data;
+              if (this.aste.length > 0) {
+                this.asta = this.aste[this.aste.length - 1];
+              }
+            }
+          )
+        });
       }
       );
+  }
+
+  handleFilterHouses() {
+
+    this.filter = this.route.snapshot.paramMap.get('filter')!;
+    console.log("FILTER: " + this.filter);
+
+
+    if (this.filter != this.previousFilter && this.filter != '') {
+      this.filter = this.route.snapshot.paramMap.get('filter')!;
+      this.previousFilter = this.filter;
+      this.thePageNumber = 1;
+      this.houseService.getHouseListFilter(this.filter).subscribe(
+        data => {
+          this.houses = data;
+          this.houses.forEach(house => {
+            this.immaginiService.getImmagineByHouseId(house.id).subscribe(
+              data => {
+                this.immagine = data;
+                console.log("URLS da list:" + this.immagine.url);
+                house.immagine = (this.immagine.url);
+              }
+            )
+          }
+          );
+          this.houses.forEach(house => {
+            this.asteService.getAstebyIdAnnuncio(house.id).subscribe(
+              data => {
+                this.aste = data;
+                if (this.aste.length > 0) {
+                  this.asta = this.aste[this.aste.length - 1];
+                }
+              }
+            )
+          });
+
+        }
+      );
+    }
   }
 
   //open a mail client with the house owner email
@@ -179,6 +243,9 @@ export class HouseListComponent {
     window.location.reload();
   }
 
+  sleep(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
 
 
 }

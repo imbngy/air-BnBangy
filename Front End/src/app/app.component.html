@@ -26,6 +26,18 @@
             <li class="nav-item pr-3">
               <a class="nav-link mr-3" routerLink="/categoria/Attico">Attici</a>
             </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Filtri
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#" routerLink="/filter/priceAsc">Prezzo Crescente</a>
+                <a class="dropdown-item" href="#" routerLink="/filter/priceDesc">Prezzo Decrescente</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" routerLink="/filter/metrAsc">Metri Quadri Crescente</a>
+                <a class="dropdown-item" href="#" routerLink="/filter/metrDesc">Metri Quadri Decrescente</a>
+              </div>
+            </li>
             <li class="dropdown d-inline justify-content-center rounded user row border">
               <a class="nav-link user-drop" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" class="user-icon col"
