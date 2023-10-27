@@ -52,7 +52,17 @@ Air BnBangy is a full-stack web application that serves as a real estate marketp
 
 Clone the repository;
 
-Restore the database through the dump;
+Create database airimmobiliare;
+
+Navigate to DBDUMP:
+```bash
+cd air-BnBangy/Back\ End/DBDUMP
+```
+
+Restore the database through the dump:
+```bash
+pg_restore -U postgres -c  -Ft -C -d airimmobiliare < postgres_localhost-2023_10_13_23_18_49-dump.sql
+```
 
 Configure the PostgreSQL database settings in the application.properties file;
 
@@ -64,15 +74,15 @@ Navigate to the frontend directory;
 
 Install dependencies:
 
-```
+```bash
 cd frontend
 npm install
 ```
 
-Start the Angular development server:
+Start the Angular development server using:
 
-```
-npm run
+```bash
+npm start
 ```
 
 Open the application in your browser at http://localhost:4200.
