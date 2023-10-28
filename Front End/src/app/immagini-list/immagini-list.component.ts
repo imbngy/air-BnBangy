@@ -13,6 +13,7 @@ import { CarouselComponent } from '@coreui/angular';
 export class ImmaginiListComponent {
 
   immaginis: Immagini[] = [];
+  primaImmagine: Immagini;
 
   
 
@@ -21,6 +22,11 @@ export class ImmaginiListComponent {
 
   ngOnInit(): void {
     this.listImmaginis();
+    this.sleep(150).then(() => {
+      this.primaImmagine = this.immaginis[0];
+      this.immaginis.shift();
+    }
+    );
   }
 
   listImmaginis() {
@@ -33,5 +39,8 @@ export class ImmaginiListComponent {
     );
   }
 
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
 
 }

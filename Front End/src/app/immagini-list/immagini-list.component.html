@@ -1,6 +1,25 @@
-
-<p-galleria [value]="immaginis" [numVisible]="5" [circular]="true" [showItemNavigators]="true" [showThumbnails]="false" [containerStyle]="{ 'max-width': '850px' }">
+<div id="gallery" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100 rounded item " src="{{primaImmagine.url}}" alt="slide">
+    </div>
+    <div *ngFor="let immagine of immaginis" class="carousel-item">
+      <img class="d-block w-100 rounded item " src="{{immagine.url}}" alt="slide">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#gallery" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#gallery" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!--Sostituito per perfomance-->
+<!--<p-galleria [value]="immaginis" [numVisible]="5" [circular]="true" [showItemNavigators]="true" [showThumbnails]="false"
+  [containerStyle]="{ 'max-width': '850px' }">
   <ng-template pTemplate="item" let-item>
-      <img [src]="item.url" class="d-block w-100 rounded" />
+    <img [src]="item.url" class="d-block w-100 rounded item" />
   </ng-template>
-</p-galleria>
+</p-galleria> -->

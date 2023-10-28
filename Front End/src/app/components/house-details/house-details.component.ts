@@ -36,10 +36,9 @@ export class HouseDetailsComponent {
   indirizzo: any;
   aste!: Aste[];
   asta!: Aste;
-  astaForm: FormGroup;
   lowerP!: number;
   astaP!: number;
-  newOfferta!: number;
+  newPrezzoAttuale?: FormControl<string> = new FormControl('', [Validators.required, Validators.min(this.asta?.prezzoAttuale)]);
 
 
   constructor(private houseService: HouseService,
@@ -60,12 +59,23 @@ export class HouseDetailsComponent {
     });
   }
 
-  updateAsta(newOfferta:number) {
+  updateAsta() {
+    //generate a formBuilder called prezzoAsta
+    //this.astaForm = this.formBuilder.group({
+    //  prezzoAsta: new FormControl('', [Validators.required, Validators.min(this.asta.prezzoAttuale)])
+    //});
     this.asta = new Aste(this.asta.id, this.asta.compratore, this.asta.idAnnuncio, this.asta.prezzoAttuale, this.asta.prezzoIniziale);
-    this.asta.prezzoAttuale = newOfferta;
+    if(this.asta.prezzoAttuale < +this.newPrezzoAttuale.value) {
+      this.asta.prezzoAttuale = +this.newPrezzoAttuale.value;
+    }
+    else {
+      alert("Offerta troppo bassa");
+    }
+    console.log("valore da input: "+ +this.newPrezzoAttuale.value);
     this.asteService.updateAsta(this.asta).subscribe(
       data => {
         console.log(data);
+
       }
     )
   }
