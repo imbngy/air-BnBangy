@@ -40,7 +40,7 @@ Air BnBangy is a full-stack web application that serves as a real estate marketp
 
 ### Prerequisites
 
-- **Java 21**
+- [**JDK 21**](https://www.oracle.com/it/java/technologies/downloads/#jdk21-windows)
 - **Node.js**
 - **Angular CLI**
 - **PostgreSQL**
