@@ -52,7 +52,25 @@ Air BnBangy is a full-stack web application that serves as a real estate marketp
 
 Clone the repository;
 
-Create database airimmobiliare;
+Create database airimmobiliare via Dbeaver or CLI:
+```bash
+psql -U postgres
+```
+
+It will ask for a password, then prompt:
+```bash
+CREATE DATABASE airimmobiliare;
+```
+
+Check if the database exists with:
+```bash
+\l
+```
+
+And then exit psql using:
+```bash
+\q
+```
 
 Navigate to DBDUMP:
 ```bash
@@ -67,6 +85,9 @@ pg_restore -U postgres -c  -Ft -C -d airimmobiliare < postgres_localhost-2023_10
 Configure the PostgreSQL database settings in the application.properties file;
 
 Run the Spring Boot application;
+
+> [!IMPORTANT]
+> You will need [JDK 21.0.1](https://www.oracle.com/it/java/technologies/downloads/#jdk21-windows) to run the project, please install it and set it as default option for this project
 
 
 ### Frontend:
