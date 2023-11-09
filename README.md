@@ -2,13 +2,12 @@
 
 ## Air BnBangy - Real Estate Marketplace
 
-### Overview
 
 Air BnBangy is a full-stack web application that serves as a real estate marketplace, enabling users to buy and sell houses seamlessly. The project is built using Spring Boot in the backend and Angular in the frontend, providing a modern and efficient solution for real estate transactions.
 
-## Technologies Used
+# Technologies Used
 
-### Frontend
+## Frontend
 
 - **Angular 16**: The frontend is developed using Angular, a powerful and widely-used web application framework;
 - **Angular Material**: Angular Material components are employed for a consistent and visually appealing user interface.;
@@ -18,7 +17,7 @@ Air BnBangy is a full-stack web application that serves as a real estate marketp
 - **Imgbb API**: The Imgbb API is integrated for efficient image uploading and hosting;
 - **Bootstrap**: Bootstrap is employed for responsive and mobile-friendly design elements.
 
-### Backend
+## Backend
 
 - **Java 21**: The backend is powered by Java 21, leveraging the latest features and improvements;
 - **Spring Boot**: Spring Boot is used to simplify the development of the backend, providing a robust and scalable server;
@@ -38,7 +37,7 @@ Air BnBangy is a full-stack web application that serves as a real estate marketp
 
 # Getting Started
 
-### Prerequisites
+## Prerequisites
 
 - [**JDK 21**](https://www.oracle.com/it/java/technologies/downloads/#jdk21-windows)
 - **Node.js**
@@ -48,16 +47,27 @@ Air BnBangy is a full-stack web application that serves as a real estate marketp
 
 # Setup
 
-### Backend:
+## Backend:
 
-Clone the repository;
+Clone the repository:
+```bash
+git clone https://github.com/imbngy/air-BnBangy.git
+```
+
+### Database 
+
+There are 2 methods to restore the database:
+
+1. The first one is via DBeaver using the files in the folder `air-bnbangy/Back End/DB_DUMP/DBeaver/`;
+
+2. The second one is by using the dump generated via pg_dump:
 
 Create database airimmobiliare via Dbeaver or CLI:
 ```bash
 psql -U postgres
 ```
 
-It will ask for a password, then prompt:
+It will ask for a password, log in, then prompt:
 ```bash
 CREATE DATABASE airimmobiliare;
 ```
@@ -72,9 +82,9 @@ And then exit psql using:
 \q
 ```
 
-Navigate to DBDUMP:
+Navigate to DB_DUMP:
 ```bash
-cd air-BnBangy/Back\ End/DBDUMP
+cd air-BnBangy/Back\ End/DB_DUMP
 ```
 
 Restore the database through the dump:
@@ -90,7 +100,7 @@ Run the Spring Boot application;
 > You will need [JDK 21.0.1](https://www.oracle.com/it/java/technologies/downloads/#jdk21-windows) to run the project, please install it and set it as default option for this project
 
 
-### Frontend:
+## Frontend:
 Navigate to the frontend directory;
 
 Install dependencies:
